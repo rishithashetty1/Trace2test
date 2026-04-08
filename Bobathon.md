@@ -138,9 +138,17 @@ Outcome:
 - Phase 2 completed: automated test derived from crash inputs.
 - Phase 3 completed: bug fixed with minimal logic change.
 - Final validation completed: pytest run passed with 1/1 tests successful.
+- Prompt-product packaging completed in [trace2test/PROMPTS.md](trace2test/PROMPTS.md).
+- Demo-hardening updates added: combined fallback prompt, rehearsal checklist, live-demo guidance, and explicit risk notes.
 
 ## Conclusions
 The development session successfully demonstrated the Trace2Test workflow end-to-end: reproduce a failure, capture its context, generate a regression test from the observed inputs, and implement a minimal fix validated by automated testing. A concise milestone-based documentation strategy was used to keep session logging comprehensive without unnecessary token overhead.
+
+## Demo Readiness Notes
+- Remaining non-Hour-1 gaps were closed by updating [trace2test/PROMPTS.md](trace2test/PROMPTS.md) with a combined RCA+test-generation fallback prompt.
+- Live-demo guidance now explicitly addresses the nested workspace layout and recommends [`python3 -m pytest`](trace2test/tests/test_payment_crash.py:1) for more reliable execution.
+- Rehearsal guidance now captures timing goals, likely failure points, and a shortened fallback narrative if the full demo runs long.
+- The only items still outside implementation scope are manual presenter actions such as arranging VS Code split view and performing repeated timed rehearsals.
 
 ## References
 ### Dependencies
