@@ -1,0 +1,10 @@
+ERROR TYPE: ZeroDivisionError
+ERROR MESSAGE: division by zero
+FUNCTION: process_payment
+LINE: 4
+FILE: payment_service.py
+INPUT PARAMS: order_id=ORD-001, amount=100.0, quantity=0
+TRACEBACK:
+  File "payment_service.py", line 4, in process_payment
+    price_per_unit = amount / quantity
+ZeroDivisionError: division by zero
