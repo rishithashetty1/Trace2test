@@ -2,6 +2,23 @@
 
 This file contains the literal saved prompts for the Trace2Fix workflow.
 
+## Single reusable workflow command
+```text
+Run Trace2Fix workflow on crash.log
+```
+
+## What this command means in this workspace
+When a developer says `Run Trace2Fix workflow on crash.log`, the expected workflow is:
+1. Read [trace2test/crash.log](trace2test/crash.log)
+2. Perform root cause analysis
+3. Generate [trace2test/tests/test_payment_crash.py](trace2test/tests/test_payment_crash.py) to reproduce the crash
+4. Run [`python3 -m pytest`](trace2test/tests/test_payment_crash.py:1)
+5. Suggest the minimal safe fix in [trace2test/payment_service.py](trace2test/payment_service.py)
+6. Apply the fix
+7. Update pytest expectations if the exception changes
+8. Re-run [`python3 -m pytest`](trace2test/tests/test_payment_crash.py:1)
+9. Confirm whether all tests pass
+
 ## Prompt 1 — RCA
 ```text
 Read the file crash.log in the current workspace. Identify the error type, the exact function and line that failed, the input values that triggered it, and the root cause in plain English.
